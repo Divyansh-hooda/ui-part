@@ -1,111 +1,231 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* =========================================================
+     Nebula Colors
+     ========================================================= */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --nebula-bg: #070912;
+  --nebula-bg-secondary: #0b0e18;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --nebula-surface: rgba(17, 21, 34, 0.72);
+  --nebula-surface-light: rgba(25, 30, 47, 0.72);
+  --nebula-surface-hover: rgba(32, 38, 58, 0.78);
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --nebula-border: rgba(255, 255, 255, 0.075);
+  --nebula-border-light: rgba(255, 255, 255, 0.12);
+
+  --nebula-text: #f4f5fa;
+  --nebula-text-secondary: #a7adbf;
+  --nebula-text-muted: #697086;
+
+  --nebula-purple: #8b5cf6;
+  --nebula-purple-light: #a78bfa;
+  --nebula-purple-dark: #6d28d9;
+
+  --nebula-blue: #60a5fa;
+  --nebula-cyan: #22d3ee;
+
+  --nebula-success: #34d399;
+  --nebula-warning: #fbbf24;
+  --nebula-error: #fb7185;
+
+
+  /* =========================================================
+     Glass
+     ========================================================= */
+
+  --glass-background: rgba(13, 17, 29, 0.72);
+
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.28);
+
+  --glass-blur: 24px;
+
+
+  /* =========================================================
+     Radius
+     ========================================================= */
+
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-xl: 20px;
+
+
+  /* =========================================================
+     Typography
+     ========================================================= */
+
+  --font-ui:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+
+  /* =========================================================
+     Spacing
+     ========================================================= */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+
+  /* =========================================================
+     Window
+     ========================================================= */
+
+  --titlebar-height: 44px;
+  --statusbar-height: 28px;
+  --activitybar-width: 64px;
+  --sidebar-width: 240px;
+  --inspector-width: 300px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+/* =========================================================
+   Reset
+   ========================================================= */
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   Global Body
+   ========================================================= */
+
 body {
-  margin: 0;
+  background: var(--nebula-bg);
+  color: var(--nebula-text);
+
+  font-family: var(--font-ui);
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  overflow: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+
+/* =========================================================
+   Selection
+   ========================================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: white;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+
+/* =========================================================
+   Scrollbars
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+
+/* =========================================================
+   Glass Utility
+   ========================================================= */
+
+.glass {
+  background: var(--glass-background);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  box-shadow: var(--glass-shadow);
+}
+
+
+/* =========================================================
+   Nebula Background
+   ========================================================= */
+
+.nebula-background {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(124, 58, 237, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(37, 99, 235, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(6, 182, 212, 0.06),
+      transparent 35%
+    ),
+    var(--nebula-bg);
+}
+
+
+/* =========================================================
+   Utility
+   ========================================================= */
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.65);
+  outline-offset: 2px;
 }
