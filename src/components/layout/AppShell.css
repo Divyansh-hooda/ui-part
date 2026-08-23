@@ -1,0 +1,617 @@
+.app-shell {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--nebula-text);
+
+  background: rgba(7, 9, 18, 0.45);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   Title Bar
+   ========================================================= */
+
+.title-bar {
+  height: var(--titlebar-height);
+  min-height: var(--titlebar-height);
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  padding: 0 14px;
+
+  background: rgba(10, 13, 23, 0.68);
+
+  border-bottom: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.title-bar-left,
+.title-bar-right {
+  display: flex;
+  align-items: center;
+}
+
+.title-bar-left {
+  gap: 9px;
+}
+
+.title-bar-right {
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.nebula-logo {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--nebula-purple),
+      var(--nebula-blue)
+    );
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.25);
+}
+
+.title-bar-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.title-bar-center {
+  color: var(--nebula-text-secondary);
+
+  font-size: 12px;
+}
+
+.title-button {
+  width: 30px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--nebula-text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.title-button:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--nebula-text);
+}
+
+
+/* =========================================================
+   Main Content
+   ========================================================= */
+
+.app-content {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   Activity Bar
+   ========================================================= */
+
+.activity-bar {
+  width: var(--activitybar-width);
+  min-width: var(--activitybar-width);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  padding-top: 14px;
+
+  background: rgba(8, 11, 20, 0.58);
+
+  border-right: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.activity-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: var(--nebula-text-muted);
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.activity-button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--nebula-text);
+}
+
+.activity-button.active {
+  background: rgba(139, 92, 246, 0.14);
+  color: var(--nebula-purple-light);
+
+  box-shadow:
+    inset 2px 0 0 var(--nebula-purple);
+}
+
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(11, 14, 24, 0.62);
+
+  border-right: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.panel-heading {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 18px;
+
+  border-bottom: 1px solid var(--glass-border);
+
+  color: var(--nebula-text-secondary);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.sidebar-content {
+  flex: 1;
+
+  padding: 16px 10px;
+
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  padding: 0 10px;
+  margin-bottom: 8px;
+
+  color: var(--nebula-text-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.sidebar-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 9px 11px;
+
+  margin-bottom: 3px;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: var(--nebula-text-secondary);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--nebula-text);
+}
+
+.sidebar-item.active {
+  background: rgba(139, 92, 246, 0.13);
+  color: var(--nebula-purple-light);
+}
+
+.sidebar-item span:first-child {
+  width: 18px;
+
+  text-align: center;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   Workspace
+   ========================================================= */
+
+.workspace {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 32px;
+
+  overflow-y: auto;
+}
+
+.workspace-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 30px;
+}
+
+.workspace-eyebrow {
+  margin-bottom: 6px;
+
+  color: var(--nebula-purple-light);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.workspace-header h1 {
+  margin: 0 0 7px;
+
+  font-size: 28px;
+  line-height: 1.2;
+
+  letter-spacing: -0.035em;
+}
+
+.workspace-header p {
+  margin: 0;
+
+  color: var(--nebula-text-secondary);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   Primary Button
+   ========================================================= */
+
+.primary-button {
+  padding: 9px 15px;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--nebula-purple),
+      var(--nebula-purple-dark)
+    );
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 22px rgba(109, 40, 217, 0.22);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 28px rgba(109, 40, 217, 0.32);
+}
+
+
+/* =========================================================
+   Cards
+   ========================================================= */
+
+.workspace-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.glass-card {
+  min-height: 190px;
+
+  padding: 22px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-large);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 30, 47, 0.62),
+      rgba(13, 17, 29, 0.58)
+    );
+
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--nebula-border-light);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(32, 38, 58, 0.72),
+      rgba(15, 19, 32, 0.66)
+    );
+}
+
+.card-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+
+  background: rgba(139, 92, 246, 0.12);
+
+  color: var(--nebula-purple-light);
+
+  font-size: 17px;
+}
+
+.glass-card h2 {
+  margin: 0 0 7px;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.glass-card p {
+  margin: 0;
+
+  color: var(--nebula-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   Inspector
+   ========================================================= */
+
+.inspector {
+  width: var(--inspector-width);
+  min-width: var(--inspector-width);
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(11, 14, 24, 0.62);
+
+  border-left: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.inspector-content {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.inspector-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  color: var(--nebula-text-muted);
+}
+
+.placeholder-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 13px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--nebula-text-muted);
+}
+
+.inspector-placeholder span {
+  color: var(--nebula-text-secondary);
+
+  font-size: 12px;
+}
+
+.inspector-placeholder p {
+  max-width: 180px;
+
+  margin: 6px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   Status Bar
+   ========================================================= */
+
+.status-bar {
+  height: var(--statusbar-height);
+  min-height: var(--statusbar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  background: rgba(8, 11, 20, 0.72);
+
+  border-top: 1px solid var(--glass-border);
+
+  color: var(--nebula-text-muted);
+
+  font-size: 10px;
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.status-bar div:first-child {
+  color: var(--nebula-success);
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .inspector {
+    display: none;
+  }
+
+  .workspace-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+
+  .workspace {
+    padding: 24px;
+  }
+
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
