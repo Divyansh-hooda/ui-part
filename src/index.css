@@ -1,19 +1,63 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
-@theme {
-  --font-sans:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-}
-
 :root {
-  font-family:
+  /* =========================================================
+     Nebula Colors
+     ========================================================= */
+
+  --nebula-bg: #070912;
+  --nebula-bg-secondary: #0b0e18;
+
+  --nebula-surface: rgba(17, 21, 34, 0.72);
+  --nebula-surface-light: rgba(25, 30, 47, 0.72);
+  --nebula-surface-hover: rgba(32, 38, 58, 0.78);
+
+  --nebula-border: rgba(255, 255, 255, 0.075);
+  --nebula-border-light: rgba(255, 255, 255, 0.12);
+
+  --nebula-text: #f4f5fa;
+  --nebula-text-secondary: #a7adbf;
+  --nebula-text-muted: #697086;
+
+  --nebula-purple: #8b5cf6;
+  --nebula-purple-light: #a78bfa;
+  --nebula-purple-dark: #6d28d9;
+
+  --nebula-blue: #60a5fa;
+  --nebula-cyan: #22d3ee;
+
+  --nebula-success: #34d399;
+  --nebula-warning: #fbbf24;
+  --nebula-error: #fb7185;
+
+
+  /* =========================================================
+     Glass
+     ========================================================= */
+
+  --glass-background: rgba(13, 17, 29, 0.72);
+
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.28);
+
+  --glass-blur: 24px;
+
+
+  /* =========================================================
+     Radius
+     ========================================================= */
+
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-xl: 20px;
+
+
+  /* =========================================================
+     Typography
+     ========================================================= */
+
+  --font-ui:
     -apple-system,
     BlinkMacSystemFont,
     "SF Pro Display",
@@ -22,15 +66,35 @@
     Arial,
     sans-serif;
 
-  color-scheme: dark;
-  background: #070912;
-  color: #f4f5fa;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* =========================================================
+     Spacing
+     ========================================================= */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+
+  /* =========================================================
+     Window
+     ========================================================= */
+
+  --titlebar-height: 44px;
+  --statusbar-height: 28px;
+  --activitybar-width: 64px;
+  --sidebar-width: 240px;
+  --inspector-width: 300px;
 }
+
+
+/* =========================================================
+   Reset
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -45,6 +109,123 @@ body,
   padding: 0;
 }
 
+
+/* =========================================================
+   Global Body
+   ========================================================= */
+
 body {
+  background: var(--nebula-bg);
+  color: var(--nebula-text);
+
+  font-family: var(--font-ui);
+
+  font-size: 14px;
+  line-height: 1.5;
+
   overflow: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   Selection
+   ========================================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: white;
+}
+
+
+/* =========================================================
+   Scrollbars
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+
+/* =========================================================
+   Glass Utility
+   ========================================================= */
+
+.glass {
+  background: var(--glass-background);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  box-shadow: var(--glass-shadow);
+}
+
+
+/* =========================================================
+   Nebula Background
+   ========================================================= */
+
+.nebula-background {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(124, 58, 237, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(37, 99, 235, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(6, 182, 212, 0.06),
+      transparent 35%
+    ),
+    var(--nebula-bg);
+}
+
+
+/* =========================================================
+   Utility
+   ========================================================= */
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.65);
+  outline-offset: 2px;
 }
